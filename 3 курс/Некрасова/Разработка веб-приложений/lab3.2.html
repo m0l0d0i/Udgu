@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск адресов веб-сайтов в массиве строк</title>
+    <style>
+        .url{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Поиск адресов веб-сайтов в массиве строк</h1>
+    
+    <button onclick="processArray()">Создать новый массив</button>
+    
+    <h2>1. Исходный массив строк (10 элементов)</h2>
+    <div id="arrayOutput" class="array-container"></div>
+    
+    <h2>2. Найденные адреса веб-сайтов</h2>
+    <div id="urlsOutput" class="urls-container"></div>
+    
+    <script>
+        // Функция для создания случайного массива строк
+        function createRandomArray() {
+            const prefixes = [
+                "Это просто текст",
+                "Посетите мой сайт:",
+                "Мой email:",
+                "Форум доступен по адресу:",
+                "Обычная строка",
+                "Наш блог:",
+                "Контакты:",
+                "Официальный сайт компании:",
+                "Некорректная ссылка:",
+                "Еще один сайт:"
+            ];
+            
+            const url = [
+                "http://site.net/page.html", "htpp:/wrong.com", "https://company.org/products", "+7 (123) 456-78-90", "www.myblog.ru",
+                "URL", "http://forum.example.org", "https://mywebsite.com", "user@example.com",
+                "ссылка", "link", "машинное обучение"
+            ];
+            
+            const array = [];
+            
+            for (let i = 0; i < 10; i++) {                
+                let string = "";
+                
+                // Добавляем префикс
+                string += prefixes[Math.floor(Math.random() * prefixes.length)];
+                string += " ";
+
+                
+                // Добавляем url
+                string += url[Math.floor(Math.random() * url.length)];
+ 
+                
+                array.push(string);
+            }
+            
+            return array;
+        }
+        
+        // Функция для проверки, является ли строка URL веб-сайта
+        function isWebURL(str) {
+            // Более точное регулярное выражение для URL
+            const urlPattern = /(https?:\/\/[^\s]+(?:\.[^\s]+)*|www\.[^\s]+\.[^\s]{2,})(\/[^\s]*)?/gi;
+            
+            // Ищем URL в строке
+            const matches = str.match(urlPattern);
+            
+            // Если нашли совпадения, проверяем каждый
+            if (matches) {
+                for (let match of matches) {
+                    // Проверяем, что это действительно веб-адрес
+                    if (match.includes('http://') || 
+                        match.includes('https://') || 
+                        match.startsWith('www.')) {
+                        return match;
+                    }
+                }
+            }
+            return [];
+        }
+        
+        
+        // Основная функция обработки
+        function processArray() {
+            // 1. Создаем массив из 10 строк
+            const stringArray = createRandomArray();
+            
+            // 2. Выводим весь массив на экран
+            let arrayHTML = '<div>';
+            for (let i = 0; i < stringArray.length; i++) {
+                arrayHTML += `<p>${i+1}: ${stringArray[i]}</p>`;
+            }
+            arrayHTML += '</div>';
+            document.getElementById('arrayOutput').innerHTML = arrayHTML;
+            
+            // 3. Находим и выводим строки с адресами веб-сайтов
+            let urlsFound = [];
+            let urlsHTML = '<div>';
+            
+            for (let i = 0; i < stringArray.length; i++) {
+                var urls = isWebURL(stringArray[i])
+                if (urls.length > 1) {
+                    urlsFound.push({
+                        index: i,
+                        text: stringArray[i],
+                        urls: urls
+                    });
+                    
+                    urlsHTML += `<p>${i+1}: `;
+                    urlsHTML += stringArray[i].replace(
+                        /(https?:\/\/[^\s]+|www\.[^\s]+\.[^\s]{2,})/gi, 
+                        match => `<span class="url">${match}</span>`
+                    );
+                    urlsHTML += '</p>';
+                }
+            }
+            
+            urlsHTML += '</div>';
+            
+            if (urlsFound.length === 0) {
+                urlsHTML = '<p>В массиве не найдено адресов веб-сайтов</p>';
+            } else {
+                urlsHTML = `<p>Найдено адресов веб-сайтов: ${urlsFound.length}</p>` + urlsHTML;
+            }
+            
+            document.getElementById('urlsOutput').innerHTML = urlsHTML;
+        }
+        
+        // Запускаем при загрузке страницы
+        window.onload = processArray;
+    </script>
+</body>
+</html>

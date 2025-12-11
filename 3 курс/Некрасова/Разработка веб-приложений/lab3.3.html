@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск СНИЛС в массиве строк</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Поиск СНИЛС в массиве строк</h1>
+               
+        <div class="section-array">
+            <h2>1. Исходный массив (10 строк):</h2>
+            <div id="arrayOutput"></div>
+        </div>
+        
+        <div class="section-snils">
+            <h2>2. Найденные СНИЛС:</h2>
+            <div id="snilsOutput"></div>
+        </div>
+    </div>
+
+    <script>
+        // Функция для создания массива строк
+        function createArray() {
+            const strings = [
+                "Иванов Иван Иванович, СНИЛС: 123-456-789 01",
+                "Петрова Анна Сергеевна, телефон: +7(999)123-45-67",
+                "СНИЛС 987-654-321 00 выдан в 2020 году",
+                "Паспорт: 4510 123456, выдан 15.05.2015",
+                "Мой СНИЛС - 555-666-777 88",
+                "Это текст без номеров документов",
+                "Номер ИНН: 123456789012, СНИЛС: 111-222-333 44",
+                "Неверный формат СНИЛС: 123-45-6789 01",
+                "111-222-333 99 - это корректный СНИЛС",
+                "Дата рождения: 15.03.1985, номер 999-888-777 66"
+            ];
+            
+            return strings;
+        }
+        
+        // Функция для проверки, содержит ли строка СНИЛС
+        function findSNILS(str) {
+            const snilsRegex = /\b\d{3}-\d{3}-\d{3} \d{2}\b/g;
+            return str.match(snilsRegex);
+        }
+        
+        function processArray() {
+            // 1. Создаем массив из 10 строк
+            const stringArray = createArray();
+            
+            // 2. Выводим весь массив на экран
+            let arrayHTML = '<div>';
+            for (let i = 0; i < stringArray.length; i++) {
+                arrayHTML += `<p>${i+1}: ${stringArray[i]}</p>`;
+            }
+            arrayHTML += '</div>';
+            document.getElementById('arrayOutput').innerHTML = arrayHTML;
+            
+            // 3. Ищем и выводим СНИЛС
+            let snilsFound = [];
+            
+            for (let i = 0; i < stringArray.length; i++) {
+                const snilsMatches = findSNILS(stringArray[i]);
+                
+                if (snilsMatches) {
+                    snilsFound.push({
+                        index: i,
+                        text: stringArray[i],
+                        snils: snilsMatches
+                    });
+                }
+            }
+            
+            let snilsHTML = '';
+            
+            if (snilsFound.length === 0) {
+                snilsHTML = '<p>СНИЛС не найдены</p>';
+            } else {
+                snilsHTML = `<p>Найдено СНИЛС: ${snilsFound.length}</p><div>`;
+                
+                for (const item of snilsFound) {
+                    snilsHTML += `
+                        <li>
+                            <span>${item.index+1}: </span>
+                            ${item.text}<br>
+                            <p>Найденные СНИЛС: ${item.snils}</p>
+                        </li>
+                    `;
+                }
+                
+                snilsHTML += '</div>';
+            }
+            
+            document.getElementById('snilsOutput').innerHTML = snilsHTML;
+        }
+        
+        // Запускаем при загрузке страницы
+        window.onload = processArray;
+    </script>
+</body>
+</html>

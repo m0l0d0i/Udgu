@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Работа с массивом строк V[9]</title>
+    <style></style>
+</head>
+<body>
+    <div class="container">
+        <h1>Работа с массивом строк V[9]</h1>
+        
+        <div class="tasks">
+            <h3>Задание:</h3>
+            <p>Создать программу, формирующую массив строк V[9] и осуществляющую с ним следующие действия:</p>
+            <ol>
+                <li>Вывод массива на экран</li>
+                <li>Вывод количества элементов массива, в которых встречается сочетание 'c++' (регистр не имеет значения)</li>
+                <li>Вывод на экран первых четырех символов 6-го элемента массива</li>
+                <li>Вывод на экран последних трех символов элемента № 5</li>
+            </ol>
+        </div>
+        
+        <div class="controls">
+            <button id="generateBtn">Сгенерировать новый массив</button>
+        </div>
+        
+        <div id="resultsContainer">
+        </div>
+    </div>
+
+    <script>
+        // Функция для генерации случайного массива строк
+        function generateRandomArray() {
+            const prefixes = [
+                "Программирование", "Разработка", "Изучение", "Курс", "Урок", 
+                "Основы", "Продвинутый", "Быстрый", "Эффективный", "Современный"
+            ];
+            
+            const languages = [
+                "C++", "Java", "Python", "JavaScript", "C#", "PHP", "Ruby", 
+                "Go", "Rust", "c++", "Kotlin", "Swift"
+            ];
+            
+            const topics = [
+                "для начинающих", "с нуля", "практика", "теория", "алгоритмы",
+                "структуры данных", "ООП", "паттерны проектирования", "веб-разработка",
+                "мобильная разработка", "игры", "машинное обучение"
+            ];
+            
+            const array = [];
+            
+            for (let i = 0; i < 9; i++) {                
+                let string = "";
+                
+                // Добавляем префикс
+                string += prefixes[Math.floor(Math.random() * prefixes.length)];
+                string += " ";
+                
+                // Добавляем язык
+                const language = languages[Math.floor(Math.random() * languages.length)];
+                string += language;
+                string += " ";
+                
+                // Добавляем тему
+                string += topics[Math.floor(Math.random() * topics.length)];
+ 
+                
+                array.push(string);
+            }
+            
+            return array;
+        }
+        
+        // Функция для обработки массива и выполнения задач
+        function processArray(arrayV) {
+            // 1. Вывод массива на экран
+            let arrayHTML = '<h2>1. Массив строк V[9]:</h2>';
+            arrayHTML += '<div>';
+            
+            for (let i = 0; i < arrayV.length; i++) {                
+                // Создаем HTML для элемента массива
+                arrayHTML += `<div>${i}: "${arrayV[i]}"</div>`;
+            }
+            
+            arrayHTML += '</div>';
+            
+            // 2. Подсчет элементов с сочетанием 'c++' (без учета регистра)
+            let countCpp = 0;
+            let cppElements = [];
+            
+            for (let i = 0; i < arrayV.length; i++) {
+                if (arrayV[i].toLowerCase().includes('c++')) {
+                    countCpp++;
+                }
+            }
+
+            let cppHTML = '<div">';
+            cppHTML += '<h3>2. Количество элементов с сочетанием "c++":</h3>';
+            cppHTML += `<div>${countCpp} элемент(а/ов)</div>`;
+            cppHTML += '</div>';
+            
+
+            // 3. Первые четыре символа 6-го элемента (индекс 5)
+            let sixthElement = arrayV[5];
+            let firstFourChars = sixthElement.substring(0, 4);
+            
+            let sixthElementHTML = '<div">';
+            sixthElementHTML += '<h3>3. Первые четыре символа 6-го элемента (V[5]):</h3>';
+            sixthElementHTML += `<p>Элемент V[5]: "${sixthElement}"</p>`;
+            sixthElementHTML += `<p>Первые 4 символа:"${firstFourChars}"</p>`;
+            sixthElementHTML += '</div>';
+            
+            // 4. Последние три символа 5-го элемента (индекс 4)
+            let fifthElement = arrayV[4];
+            let lastThreeChars = fifthElement.substring(fifthElement.length - 3, fifthElement.length);
+            
+            let fifthElementHTML = '<div>';
+            fifthElementHTML += '<h3>4. Последние три символа 5-го элемента (V[4]):</h3>';
+            fifthElementHTML += `<p>Элемент V[4]: "${fifthElement}"</p>`;
+            fifthElementHTML += `<p>Последние 3 символа:"${lastThreeChars}"</p>`;
+            fifthElementHTML += '</div>';
+            
+            // Возвращаем все HTML блоки
+            return arrayHTML + cppHTML + sixthElementHTML + fifthElementHTML;
+        }
+        
+        // Функция для отображения результатов
+        function displayResults() {       
+            // Обрабатываем массив и получаем HTML
+            const resultsHTML = processArray(generateRandomArray());
+            
+            // Вставляем HTML в контейнер
+            document.getElementById('resultsContainer').innerHTML = resultsHTML;
+        }
+        
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Отображаем первый массив при загрузке
+            displayResults();
+            
+            // Назначаем обработчики событий для кнопоки
+            document.getElementById('generateBtn').addEventListener('click', function() {
+                displayResults(); // массив
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Массив Y[8] и сумма положительных элементов</title>
+    <style>
+    </style>
+</head>
+<body>
+
+<h2>Создание массива Y и подсчёт суммы положительных элементов</h2>
+<button id="generateBtn">Создать массив</button>
+
+<div id="arrayYDisplay"></div>
+<div id="sumYDisplay"></div>
+
+<script>
+    function generateArray() {
+        const Y = [];
+        const ARRAY_SIZE = 8;
+        let sumPositive = 0;
+  
+
+        // Заполняем массив случайными числами в диапазоне -10..10
+        for (let i = 0; i < ARRAY_SIZE; i++) {
+            // Генерируем случайное число от -10 до 10
+            let num = Math.floor(Math.random() * 21) - 10;
+            Y.push(num);
+            // Складываем, если число положительное
+            if (num > 0) {
+                sumPositive += num;
+            }
+        }
+        return {
+            Y: Y,
+            sumPositive: sumPositive
+        };
+    }
+
+    function displayResults() {
+        const arrayY = generateArray();
+        // Выводим массив на экран
+        document.getElementById("arrayYDisplay").textContent = "Массив Y: [" + arrayY.Y.join(", ") + "]";
+
+        // Выводим сумму положительных элементов
+        document.getElementById("sumYDisplay").textContent = "Сумма положительных элементов: " + arrayY.sumPositive;
+
+    }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Отображаем первый массив при загрузке
+            displayResults();
+            
+            // Назначаем обработчик события для кнопки
+            document.getElementById('generateBtn').addEventListener('click', displayResults);
+        });
+</script>
+</body>
+</html>

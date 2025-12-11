@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вычисление функции</title>
+    <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        mjx-container[jax="CHTML"][display="true"] {
+            text-align: left !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Вычисление функции</h2>
+        
+        <div class="formula">
+            \[
+            y = 
+            \begin{cases} 
+            |x|, & \text{ если } a = 1; \\ 
+            2^x, & \text{ если } a = 2; \\ 
+            \cos(x), & \text{ если } a = 3. 
+            \end{cases}
+            \]
+        </div>
+        
+        <div>
+            <label for="a">Введите значение параметра a (1, 2 или 3):</label>
+            <input type="number" id="a" min="1" max="3" step="1" value="1">
+            
+            <label for="x">Введите значение x:</label>
+            <input type="number" id="x" value="5">
+            
+            <button onclick="calculate()">Вычислить</button>
+        </div>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        // Функция для вычисления y
+        function calculateY(a, x) {
+            switch(a) {
+                case 1:
+                    // |x| (модуль x)
+                    return Math.abs(x);
+                    
+                case 2:
+                    // 2^x
+                    return Math.pow(2, x);
+                    
+                case 3:
+                    // cos(x)
+                    return Math.cos(x);
+
+            }
+        }
+        
+        // Основная вычисления
+        function calculate() {
+            // Получаем значения из полей ввода
+            const a = parseInt(document.getElementById('a').value);
+            const x = parseFloat(document.getElementById('x').value);
+            
+            const resultDiv = document.getElementById('result');
+            
+            // Проверяем корректность ввода
+            if (isNaN(a) || isNaN(x) || a < 1 || a > 3) {
+                alert("Пожалуйста, введите корректные числовые значения для всех параметров.");
+                return;
+            }
+            
+            // Вычисляем значение функции
+            const y = calculateY(a, x);
+            
+            resultDiv.className = "result";
+            resultDiv.innerHTML = `<strong>Результат: y = ${y.toFixed(6)}</strong>`;
+        }   
+        
+        // Вычисляем при загрузке страницы
+        window.onload = calculate;
+    </script>
+</body>
+</html>

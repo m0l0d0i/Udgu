@@ -1,0 +1,14 @@
+C:\Users\Ivan\source\repos\BankomatApp\BankomatApp\bin\Debug\net8.0\BankomatApp.exe
+C:\Users\Ivan\source\repos\BankomatApp\BankomatApp\bin\Debug\net8.0\BankomatApp.deps.json
+C:\Users\Ivan\source\repos\BankomatApp\BankomatApp\bin\Debug\net8.0\BankomatApp.runtimeconfig.json
+C:\Users\Ivan\source\repos\BankomatApp\BankomatApp\bin\Debug\net8.0\BankomatApp.dll
+C:\Users\Ivan\source\repos\BankomatApp\BankomatApp\bin\Debug\net8.0\BankomatApp.pdb
+C:\Users\Ivan\source\repos\BankomatApp\BankomatApp\obj\Debug\net8.0\BankomatApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ivan\source\repos\BankomatApp\BankomatApp\obj\Debug\net8.0\BankomatApp.AssemblyInfoInputs.cache
+C:\Users\Ivan\source\repos\BankomatApp\BankomatApp\obj\Debug\net8.0\BankomatApp.AssemblyInfo.cs
+C:\Users\Ivan\source\repos\BankomatApp\BankomatApp\obj\Debug\net8.0\BankomatApp.csproj.CoreCompileInputs.cache
+C:\Users\Ivan\source\repos\BankomatApp\BankomatApp\obj\Debug\net8.0\BankomatApp.dll
+C:\Users\Ivan\source\repos\BankomatApp\BankomatApp\obj\Debug\net8.0\refint\BankomatApp.dll
+C:\Users\Ivan\source\repos\BankomatApp\BankomatApp\obj\Debug\net8.0\BankomatApp.pdb
+C:\Users\Ivan\source\repos\BankomatApp\BankomatApp\obj\Debug\net8.0\BankomatApp.genruntimeconfig.cache
+C:\Users\Ivan\source\repos\BankomatApp\BankomatApp\obj\Debug\net8.0\ref\BankomatApp.dll

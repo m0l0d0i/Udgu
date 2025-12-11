@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Решение функции - вариант 7</title>
+    <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>   
+        mjx-container[jax="CHTML"][display="true"] {
+            text-align: left !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="header">
+            <h1>Решение функции - вариант 7</h1>
+        </div>
+        
+        <div>
+            <p>
+                \[
+                \mathbf{y} = \begin{cases}
+                b \cdot x^2 - c \cdot x^3, & x \leq 1; \\
+                c \cdot x^3 - b \cdot x^2, & x > 1.
+                \end{cases}
+                \]
+            </p>
+        </div>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label for="b-value">Введите значение параметра b:</label>
+                <input type="number" id="b-value" step="any" placeholder="Например: 2" value="2">
+            </div>
+            
+            <div class="input-group">
+                <label for="c-value">Введите значение параметра c:</label>
+                <input type="number" id="c-value" step="any" placeholder="Например: 1" value="1">
+            </div>
+            
+            <div class="input-group">
+                <label for="x-value">Введите значение переменной x:</label>
+                <input type="number" id="x-value" step="any" placeholder="Например: 0.5" value="0.5">
+            </div>
+            
+            <button class="calculate-btn" id="calculate">Вычислить значение функции</button>
+        </div>
+        
+        <div class="results">
+            <div class="result-card" id="result-card">       
+                <div class="result-content">
+                    <div id="result-text"></div>
+                    <div class="result-value" id="result-value"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calculateBtn = document.getElementById('calculate');
+            const resultValue = document.getElementById('result-value');
+
+            // Функция для вычисления значения y
+            function calculateFunction(b, c, x) {
+                let y;
+                const x2 = x * x;
+                const x3 = x * x * x;
+                
+                // Проверяем условие
+                if (x <= 1) {
+                    // Вычисляем
+                    y = b * x2 - c * x3;
+                    
+                } else {              
+                    // Вычисляем
+                    y = c * x3 - b * x2;
+                    
+                }
+                
+                return {
+                    y: y
+                };
+            }
+            
+            
+            // Обработчик нажатия кнопки вычисления
+            calculateBtn.addEventListener('click', function() {
+                // Получаем значения из полей ввода
+                const b = parseFloat(document.getElementById('b-value').value);
+                const c = parseFloat(document.getElementById('c-value').value);
+                const x = parseFloat(document.getElementById('x-value').value);
+                
+                // Проверяем корректность ввода
+                if (isNaN(b) || isNaN(c) || isNaN(x)) {
+                    alert("Пожалуйста, введите корректные числовые значения для всех параметров.");
+                    return;
+                }
+                
+                // Вычисляем функцию
+                const result = calculateFunction(b, c, x);
+
+                
+                resultValue.textContent = `y = ${result.y}`;
+            });
+            
+            // Автоматически вычисляем при загрузке страницы
+            calculateBtn.click();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Массив чисел</title>
+</head>
+<body>
+
+<h2>Работа с массивом чисел</h2>
+
+<button onclick="start()">Запустить программу</button>
+
+<div id="result"></div>
+
+<script>
+function start() {
+    // 1. Создаем массив из случайных чисел
+    let numbers = [];
+    // Сколько чисел? От 7 до 10
+    let count = Math.floor(Math.random() * 4) + 7; // 7, 8, 9 или 10
+    
+    for(let i = 0; i < count; i++) {
+        // Случайное число от -50 до 50
+        numbers.push(Math.floor(Math.random() * 101) - 50);
+    }
+    
+    let text = "<h3>1. Наш массив:</h3>";
+    text += numbers.join(", ");
+    
+    // 2. Считаем сумму и умножение
+    let sum = 0;
+    let multiply = 1;
+    
+    for(let num of numbers) {
+        sum += num;
+        multiply *= num;
+    }
+    
+    text += "<h3>2. Сумма и умножение:</h3>";
+    text += "Сумма = " + sum + "<br>";
+    text += "Умножение = " + multiply;
+    
+    // 3. Сортируем от меньшего к большему
+    let sorted = numbers.sort((a, b) => a - b);
+    
+    text += "<h3>3. Отсортированный массив:</h3>";
+    text += sorted.join(", ");
+    
+    // 4. Добавляем новые числа
+    let newArray = numbers;
+    
+    // Добавляем в начало
+    newArray.unshift(100);
+    // Добавляем в конец  
+    newArray.push(200);
+    // Добавляем на 3-е место
+    newArray.splice(2, 0, 300);
+    
+    text += "<h3>4. Добавили числа:</h3>";
+    text += "unshift(100) - в начало<br>";
+    text += "push(200) - в конец<br>";
+    text += "splice(2, 0, 300) - на третье место<br>";
+    text += "Теперь массив: " + newArray.join(", ");
+    
+    // 5. Удаляем числа
+    let finalArray = newArray;
+    
+    // Удаляем первый
+    let first = finalArray.shift();
+    // Удаляем последний
+    let last = finalArray.pop();
+    // Удаляем со 2-го места
+    let middle = finalArray.splice(1, 1)[0];
+    
+    text += "<h3>5. Удалили числа:</h3>";
+    text += "shift() - удалили первый: " + first + "<br>";
+    text += "pop() - удалили последний: " + last + "<br>";
+    text += "splice(1, 1) - удалили второй: " + middle + "<br>";
+    text += "<b>Итоговый массив:</b> " + finalArray.join(", ");
+    
+    document.getElementById("result").innerHTML = text;
+}
+
+window.onload = start();
+</script>
+
+</body>
+</html>

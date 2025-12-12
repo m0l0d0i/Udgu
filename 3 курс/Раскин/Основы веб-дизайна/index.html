@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ремонт ПК | Ремонт компьютеров в Чайковском</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-desktop"></i>
+                <span>Профи-Ремонт ПК</span>
+            </a>
+            <nav class="nav">
+                <a href="#advantages">Преимущества</a>
+                <a href="#stages">Как мы работаем</a>
+                <a href="#price">Цены</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+            <a href="tel:+79226463256" class="phone-header">
+                <i class="fas fa-phone-alt"></i>
+                +7 (922) 646-32-56
+            </a>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Профессиональный ремонт компьютеров в Перми</h1>
+                    <p class="hero-subtitle">Быстрая диагностика, качественный ремонт и гарантия 30 дней на все виды работ. Вернем жизнь вашему ПК!</p>
+                    <div class="hero-buttons">
+                        <a href="#form" class="btn btn-primary">Оставить заявку</a>
+                        <a href="#advantages" class="btn btn-secondary">Узнать больше</a>
+                    </div>
+                    <ul class="hero-features">
+                        <li><i class="fas fa-check-circle"></i> Бесплатная диагностика</li>
+                        <li><i class="fas fa-check-circle"></i> Фиксированные цены</li>
+                        <li><i class="fas fa-check-circle"></i> Ремонт от 2 часов</li>
+                    </ul>
+                </div>
+				<div class="hero-image">
+					<div class="floating-card card-1">
+						<i class="fas fa-laptop-code"></i>
+						<h4>ИТ-аутсорсинг</h4>
+					</div>
+					<div class="floating-card card-2">
+						<i class="fas fa-tools"></i>
+						<h4>Ремонт техники</h4>
+					</div>
+					<div class="floating-card card-3">
+						<i class="fas fa-shield-alt"></i>
+						<h4>Защита данных</h4>
+					</div>
+				</div>
+            </div>
+        </section>
+
+        <section class="advantages section" id="advantages">
+            <div class="container">
+                <h2 class="section-title">Наши преимущества</h2>
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Вы — Предсказатель</h3>
+                        <p>Мы — профессионалы, готовы точно определить проблему и выполнить ремонт любой сложности.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Комплексный сервис</h3>
+                        <p>Предоставляем полный спектр услуг — от диагностики до сложного аппаратного ремонта.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <h3>Фиксированные цены</h3>
+                        <p>Цены известны до начала работ. Никаких скрытых платежей и доплат.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Хорошая репутация</h3>
+                        <p>Доверьтесь профессионалам и получите надежный результат.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <h3>Бесплатная диагностика</h3>
+                        <p>Получите точный диагноз неисправности вашего устройства совершенно бесплатно.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Гарантия 30 дней</h3>
+                        <p>Мы уверены в качестве наших услуг и предоставляем гарантию на все работы.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stages section bg-light" id="stages">
+            <div class="container">
+                <h2 class="section-title">Как мы работаем</h2>
+                <div class="stages-timeline">
+                    <div class="stage">
+                        <div class="stage-number">1</div>
+                        <div class="stage-content">
+                            <h3>Заявка и диагностика</h3>
+                            <p>Вы оставляете заявку или привозите устройство к нам. Проводим бесплатную экспресс-диагностику.</p>
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div class="stage-number">2</div>
+                        <div class="stage-content">
+                            <h3>Согласование цены и сроков</h3>
+                            <p>Сообщаем точную стоимость ремонта и сроки. Работа начинается только после вашего согласия.</p>
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div class="stage-number">3</div>
+                        <div class="stage-content">
+                            <h3>Ремонт и тестирование</h3>
+                            <p>Наши специалисты выполняют ремонт, после чего устройство проходит полное тестирование.</p>
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div class="stage-number">4</div>
+                        <div class="stage-content">
+                            <h3>Готово! Забирайте</h3>
+                            <p>Вы приезжаете в удобное время и забираете исправное устройство. Гарантия 30 дней.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="price section" id="price">
+            <div class="container">
+                <h2 class="section-title">Цены на ремонт компьютера</h2>
+                <div class="table-container">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>Наименование услуги</th>
+                                <th>Описание</th>
+                                <th>Цена</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Диагностика</td>
+                                <td>Выявление неисправности</td>
+                                <td><strong>Бесплатно</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Чистка от пыли</td>
+                                <td>Полная чистка системного блока, замена термопасты</td>
+                                <td><strong>от 500 руб.</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Установка ОС</td>
+                                <td>Установка и настройка Windows/Linux</td>
+                                <td><strong>от 1200 руб.</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Удаление вирусов</td>
+                                <td>Лечение системы от вредоносных программ</td>
+                                <td><strong>от 800 руб.</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Замена комплектующих</td>
+                                <td>Замена блока питания, материнской платы, видеокарты и т.д.</td>
+                                <td><strong>от 300 руб.</strong> + деталь</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="price-note">* Точная стоимость определяется после диагностики. Фиксируем цену в договоре.</p>
+            </div>
+        </section>
+
+
+        <section class="contact section bg-light" id="contact">
+            <div class="container contact-container">
+                <div class="contact-info">
+                    <h2 class="section-title">Оставьте заявку на ремонт</h2>
+                    <p>Опишите проблему, и мы свяжемся с вами в течение 15 минут для уточнения деталей и расчета стоимости.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Адрес</h4>
+                                <p>г. Чайковский, ул. Вокзальная, 13</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Телефон</h4>
+                                <p>+7 (922) 646-32-56</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="far fa-clock"></i>
+                            <div>
+                                <h4>График работы</h4>
+                                <p>Пн-Пт: 9:00 - 20:00<br>Сб-Вс: 10:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="form">
+                    <div class="form-group">
+                        <label for="name">Ваше имя *</label>
+                        <input type="text" id="name" placeholder="Иван Иванов" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Ваш телефон *</label>
+                        <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="device">Устройство и проблема</label>
+                        <textarea id="device" rows="3" placeholder="Например: Ноутбук ASUS, не включается..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+                    <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <div class="logo">
+                    <i class="fas fa-desktop"></i>
+                    <span>Профи-Ремонт ПК</span>
+                </div>
+                <p>Качественный и быстрый ремонт компьютеров в Перми с гарантией.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Меню</h4>
+                <a href="#advantages">Преимущества</a>
+                <a href="#stages">Как мы работаем</a>
+                <a href="#price">Цены</a>
+                <a href="#contact">Контакты</a>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p><i class="fas fa-map-marker-alt"></i> г. Чайковский, ул. Вокзальная, 13</p>
+                <p><i class="fas fa-phone-alt"></i> +7 (922) 646-32-56</p>
+                <p><i class="far fa-clock"></i> Пн-Пт: 9:00-20:00</p>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <p>&copy; 2025 «Ремонт ПК». Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

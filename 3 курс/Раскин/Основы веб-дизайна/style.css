@@ -1,0 +1,644 @@
+/* Сброс и базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #1a1a1a;
+}
+
+.bg-light {
+    background-color: #f8f9fa;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #4361ee, #3a0ca3);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #4361ee;
+    border: 2px solid #4361ee;
+}
+
+.btn-secondary:hover {
+    background-color: #4361ee;
+    color: white;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* Шапка */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #1a1a1a;
+}
+
+.logo i {
+    color: #4361ee;
+    margin-right: 10px;
+    font-size: 1.8rem;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #4361ee;
+}
+
+.phone-header {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 600;
+    background-color: #f0f4ff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+
+.phone-header i {
+    margin-right: 8px;
+    color: #4361ee;
+}
+
+.phone-header:hover {
+    background-color: #4361ee;
+    color: white;
+}
+
+.phone-header:hover i {
+    color: white;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #4361ee;
+    cursor: pointer;
+}
+
+/* Герой секция */
+.hero {
+    padding: 160px 0 80px;
+    background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+    overflow: hidden;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.hero-features {
+    list-style: none;
+}
+
+.hero-features li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-features i {
+    color: #4cc9f0;
+    margin-right: 10px;
+}
+
+.hero-image {
+    flex: 1;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.floating-card {
+    position: absolute;
+    background: white;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.floating-card i {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.floating-card h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.card-1 {
+    top: -150px;
+    left: -80px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.card-2 {
+    top: 50%;
+    right: -30px;
+    animation: float 8s ease-in-out infinite 1s;
+}
+
+.card-3 {
+    bottom: -30px;
+    left: 150px;
+    animation: float 7s ease-in-out infinite 1.5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Преимущества */
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.advantage-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.advantage-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(67, 97, 238, 0.1);
+}
+
+.advantage-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #4361ee, #4cc9f0);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.advantage-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.advantage-card p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Этапы работы */
+.stages-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.stages-timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #4361ee, #4cc9f0);
+    border-radius: 2px;
+}
+
+.stage {
+    display: flex;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.stage:last-child {
+    margin-bottom: 0;
+}
+
+.stage-number {
+    width: 64px;
+    height: 64px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4361ee;
+    border: 4px solid #4361ee;
+    margin-right: 30px;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+.stage-content {
+    flex: 1;
+    padding-top: 10px;
+}
+
+.stage-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+/* Таблица цен */
+.table-container {
+    overflow-x: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.price-table thead {
+    background: linear-gradient(90deg, #4361ee, #3a0ca3);
+    color: white;
+}
+
+.price-table th {
+    padding: 20px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.price-table td {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.price-table tbody tr:hover {
+    background-color: #f8f9ff;
+}
+
+.price-table strong {
+    color: #4361ee;
+}
+
+.price-note {
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+    font-style: italic;
+}
+
+/* Контакты и форма */
+.contact-container {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-details {
+    margin-top: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.contact-item i {
+    color: #4361ee;
+    font-size: 1.3rem;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.contact-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+}
+
+.contact-form {
+    flex: 1;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4361ee;
+}
+
+.form-note {
+    font-size: 0.85rem;
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Подвал */
+.footer {
+    background-color: #1a1a1a;
+    color: #bbb;
+    padding-top: 60px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-col h4 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.footer-col a {
+    display: block;
+    color: #bbb;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.footer-col a:hover {
+    color: #4cc9f0;
+}
+
+.footer-col p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-col i {
+    margin-right: 10px;
+    color: #4cc9f0;
+}
+
+.footer-copyright {
+    border-top: 1px solid #333;
+    padding: 20px 0;
+    text-align: center;
+    color: #888;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .hero-container,
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .hero-image {
+        order: -1;
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .phone-header {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-container {
+        position: relative;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stages-timeline::before {
+        left: 24px;
+    }
+
+    .stage-number {
+        width: 52px;
+        height: 52px;
+        font-size: 1.2rem;
+        margin-right: 20px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .hero {
+        padding: 140px 0 60px;
+    }
+
+    .contact-form {
+        padding: 25px;
+    }
+}
